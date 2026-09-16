@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rule-Based Classification Lab</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <header>
+        <div class="badge">AI LABORATORY</div>
+
+        <h1>Rule-Based Classification</h1>
+
+        <p>
+            Train the machine with labeled examples and test it with new data.
+        </p>
+    </header>
+
+
+    <!-- TRAINING DATA -->
+
+    <section class="panel">
+
+        <div class="section-title">
+            <span>01</span>
+            <div>
+                <h2>Training Data</h2>
+                <p>Examples given to the machine</p>
+            </div>
+        </div>
+
+        <div class="training-grid">
+
+            <div class="dataset car-data">
+
+                <h3>🚗 Cars</h3>
+
+                <div class="samples">
+                    <span>🚗</span>
+                    <span>🚙</span>
+                    <span>🚘</span>
+                    <span>🚗</span>
+                    <span>🚕</span>
+                    <span>🚙</span>
+                </div>
+
+                <strong>Label: CAR</strong>
+
+            </div>
+
+
+            <div class="dataset bike-data">
+
+                <h3>🚲 Bicycles</h3>
+
+                <div class="samples">
+                    <span>🚲</span>
+                    <span>🚴</span>
+                    <span>🚲</span>
+                    <span>🚴</span>
+                    <span>🚲</span>
+                    <span>🚴</span>
+                </div>
+
+                <strong>Label: BICYCLE</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="big-arrow">↓</div>
+
+
+    <!-- MODEL -->
+
+    <section class="model-panel">
+
+        <div class="brain">🧠</div>
+
+        <h2>Rule-Based Model</h2>
+
+        <p>
+            The machine creates predefined rules from the training examples.
+        </p>
+
+        <button id="trainBtn">
+            ⚙️ Train Model
+        </button>
+
+        <div id="trainingStatus" class="status">
+            Model has not been trained yet.
+        </div>
+
+    </section>
+
+
+    <div class="big-arrow">↓</div>
+
+
+    <!-- NEW DATA -->
+
+    <section class="panel">
+
+        <div class="section-title">
+            <span>02</span>
+
+            <div>
+                <h2>Give New Data</h2>
+                <p>Choose an unseen object for prediction</p>
+            </div>
+        </div>
+
+
+        <div class="new-data-area">
+
+            <div class="new-object" id="newObject">
+                🚗
+            </div>
+
+
+            <div class="object-name" id="objectName">
+                New Car
+            </div>
+
+
+            <div class="choices">
+
+                <button class="choice active"
+                        data-object="car">
+                    🚗<br>
+                    Car
+                </button>
+
+                <button class="choice"
+                        data-object="bike">
+                    🚲<br>
+                    Bicycle
+                </button>
+
+                <button class="choice"
+                        data-object="carSimilar">
+                    🚙<br>
+                    Similar Car
+                </button>
+
+                <button class="choice"
+                        data-object="bikeSimilar">
+                    🚴<br>
+                    Similar Bicycle
+                </button>
+
+                <button class="choice"
+                        data-object="unknown">
+                    ❓<br>
+                    Unknown
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- FEATURES -->
+
+        <div class="features">
+
+            <h3>Object Features</h3>
+
+            <div id="featureList">
+
+                <div class="feature">
+                    <span>Number of wheels</span>
+                    <strong id="wheelFeature">4</strong>
+                </div>
+
+                <div class="feature">
+                    <span>Body type</span>
+                    <strong id="bodyFeature">Car-like</strong>
+                </div>
+
+                <div class="feature">
+                    <span>Frame type</span>
+                    <strong id="frameFeature">Car frame</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button id="predictBtn" disabled>
+            🔍 Predict Object
+        </button>
+
+    </section>
+
+
+    <!-- RULES -->
+
+    <section class="panel">
+
+        <div class="section-title">
+            <span>03</span>
+
+            <div>
+                <h2>Rules Used</h2>
+                <p>The machine checks the new data against these rules</p>
+            </div>
+        </div>
+
+
+        <div class="rules">
+
+            <div class="rule" id="carRule">
+
+                <div class="rule-icon">🚗</div>
+
+                <div>
+                    <h3>CAR RULE</h3>
+
+                    <p>
+                        4 wheels + car-like body + car frame
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="rule" id="bikeRule">
+
+                <div class="rule-icon">🚲</div>
+
+                <div>
+                    <h3>BICYCLE RULE</h3>
+
+                    <p>
+                        2 wheels + bicycle frame
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REASONING -->
+
+    <section class="panel">
+
+        <div class="section-title">
+
+            <span>04</span>
+
+            <div>
+                <h2>Machine Reasoning</h2>
+                <p>See how the rule-based system reaches its decision</p>
+            </div>
+
+        </div>
+
+
+        <div class="reasoning" id="reasoning">
+
+            Train the model first, then give it new data.
+
+        </div>
+
+    </section>
+
+
+    <!-- PREDICTION -->
+
+    <section class="prediction" id="prediction">
+
+        <div class="prediction-icon">
+            🤖
+        </div>
+
+        <div class="prediction-label">
+            PREDICTION
+        </div>
+
+        <h2 id="predictionText">
+            Waiting...
+        </h2>
+
+        <div class="confidence">
+
+            <div class="confidence-top">
+
+                <span>Confidence</span>
+
+                <strong id="confidenceText">
+                    0%
+                </strong>
+
+            </div>
+
+            <div class="progress">
+
+                <div id="progressBar"></div>
+
+            </div>
+
+        </div>
+
+        <p id="predictionMessage">
+            Train the model and provide new data.
+        </p>
+
+    </section>
+
+
+    <!-- RESET -->
+
+    <button id="resetBtn" class="reset">
+        🔄 Reset Experiment
+    </button>
+
+
+    <!-- CONCEPT -->
+
+    <section class="concept">
+
+        <h2>💡 How Rule-Based Prediction Works</h2>
+
+        <div class="concept-flow">
+
+            <div>📚<br><strong>Training Data</strong></div>
+
+            <span>→</span>
+
+            <div>⚙️<br><strong>Rules</strong></div>
+
+            <span>→</span>
+
+            <div>🔍<br><strong>New Data</strong></div>
+
+            <span>→</span>
+
+            <div>🤖<br><strong>Prediction</strong></div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
