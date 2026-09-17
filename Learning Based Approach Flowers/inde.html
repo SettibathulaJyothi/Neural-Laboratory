@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flower Pattern Explorer | AI Laboratory</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="logo">
+        🌸 AI LABORATORY
+    </div>
+
+    <div class="topic">
+        UNSUPERVISED LEARNING
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div>
+
+            <span class="badge">🔬 AI EXPERIMENT</span>
+
+            <h1>
+                🌸 Can AI Discover<br>
+                <span>Flower Groups?</span>
+            </h1>
+
+            <p>
+                Imagine giving an AI 20 flowers...
+                but never telling it their names.
+            </p>
+
+            <p class="question">
+                🤔 Can the AI discover patterns by itself?
+            </p>
+
+        </div>
+
+        <div class="robot">
+            🤖
+        </div>
+
+    </section>
+
+
+    <!-- CONCEPT FLOW -->
+
+    <section class="flow">
+
+        <div class="flow-card">
+
+            <div class="flow-icon">🌸</div>
+
+            <h3>Unlabelled Data</h3>
+
+            <p>
+                The AI receives flowers,
+                but nobody tells it what they are.
+            </p>
+
+        </div>
+
+
+        <div class="arrow">
+            ➜
+        </div>
+
+
+        <div class="flow-card ai-card">
+
+            <div class="flow-icon">🧠</div>
+
+            <h3>AI Model</h3>
+
+            <p>
+                The AI looks for similarities
+                and differences.
+            </p>
+
+        </div>
+
+
+        <div class="arrow">
+            ➜
+        </div>
+
+
+        <div class="flow-card">
+
+            <div class="flow-icon">📦</div>
+
+            <h3>Discovered Groups</h3>
+
+            <p>
+                Similar flowers are placed
+                into groups.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DATASET -->
+
+    <section class="experiment">
+
+        <div class="section-title">
+
+            <span>STEP 1</span>
+
+            <h2>🌷 Meet Our Unlabelled Flowers</h2>
+
+            <p>
+                Nobody has given these flowers any labels.
+                The AI must discover the patterns!
+            </p>
+
+        </div>
+
+
+        <div id="flowerDataset" class="flower-dataset"></div>
+
+
+        <button id="trainBtn" class="train-button">
+            🧠 Train AI & Discover Patterns
+        </button>
+
+
+        <div id="trainingArea" class="training-area hidden">
+
+            <div class="brain">🧠</div>
+
+            <h2 id="trainingText">
+                AI is looking at the flowers...
+            </h2>
+
+            <div class="progress-container">
+                <div id="progressBar"></div>
+            </div>
+
+            <p id="progressText">0%</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PATTERN SELECTOR -->
+
+    <section id="patternSection" class="patterns hidden">
+
+        <div class="section-title">
+
+            <span>STEP 2</span>
+
+            <h2>🔍 What Pattern Should AI Look For?</h2>
+
+            <p>
+                AI can discover groups using different features.
+            </p>
+
+        </div>
+
+
+        <div class="pattern-buttons">
+
+            <button class="pattern-btn active" data-pattern="color">
+                🎨 Color
+                <small>Group similar colors</small>
+            </button>
+
+            <button class="pattern-btn" data-pattern="shape">
+                🔵 Shape
+                <small>Group similar shapes</small>
+            </button>
+
+        </div>
+
+
+        <button id="discoverBtn" class="discover-button">
+            🔎 Discover Groups
+        </button>
+
+    </section>
+
+
+    <!-- CLUSTERS -->
+
+    <section id="clustersSection" class="clusters hidden">
+
+        <div class="section-title">
+
+            <span>STEP 3</span>
+
+            <h2>📦 AI Discovered These Groups!</h2>
+
+            <p id="clusterExplanation"></p>
+
+        </div>
+
+
+        <div id="clusters" class="cluster-container"></div>
+
+    </section>
+
+
+    <!-- NEW FLOWER -->
+
+    <section id="predictionSection" class="prediction hidden">
+
+        <div class="section-title">
+
+            <span>STEP 4</span>
+
+            <h2>🌱 Give AI a New Flower</h2>
+
+            <p>
+                Let's see if AI can decide which group
+                this new flower belongs to.
+            </p>
+
+        </div>
+
+
+        <div class="new-flower-box">
+
+            <div id="newFlower" class="new-flower">
+                🌹
+            </div>
+
+            <div>
+
+                <h3>New Flower</h3>
+
+                <p id="newFlowerInfo">
+                    Red • Round
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="flower-controls">
+
+            <label>Choose Color</label>
+
+            <select id="flowerColor">
+
+                <option value="red">🔴 Red</option>
+                <option value="yellow">🟡 Yellow</option>
+                <option value="blue">🔵 Blue</option>
+                <option value="pink">🌸 Pink</option>
+
+            </select>
+
+
+            <label>Choose Shape</label>
+
+            <select id="flowerShape">
+
+                <option value="round">🌼 Round</option>
+                <option value="star">⭐ Star</option>
+                <option value="small">🌷 Small</option>
+
+            </select>
+
+        </div>
+
+
+        <button id="predictBtn" class="predict-button">
+            🤖 Ask AI to Predict
+        </button>
+
+
+        <div id="predictionResult" class="prediction-result hidden">
+
+            <div class="prediction-icon">
+                🎯
+            </div>
+
+            <h2 id="predictionTitle">
+                AI Prediction
+            </h2>
+
+            <div class="confidence">
+
+                <div class="confidence-bar">
+                    <div id="confidenceFill"></div>
+                </div>
+
+                <strong id="confidenceText">
+                    0%
+                </strong>
+
+            </div>
+
+            <p id="predictionMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- LEARNING BOX -->
+
+    <section class="learning">
+
+        <div class="learning-icon">
+            💡
+        </div>
+
+        <div>
+
+            <h2>🧠 What Did We Learn?</h2>
+
+            <p>
+                In <strong>Unsupervised Learning</strong>,
+                the AI receives data without labels.
+                Instead of being told the answers,
+                it searches for patterns on its own.
+            </p>
+
+            <div class="lesson-points">
+
+                <div>
+                    🌸 <strong>Input:</strong>
+                    Unlabelled flowers
+                </div>
+
+                <div>
+                    🔍 <strong>AI:</strong>
+                    Finds similarities
+                </div>
+
+                <div>
+                    📦 <strong>Output:</strong>
+                    Groups / clusters
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="challenge">
+
+        <h2>🚀 Think Like an AI!</h2>
+
+        <p>
+            What other features could AI use to group flowers?
+        </p>
+
+        <div class="ideas">
+
+            <button>📏 Size</button>
+            <button>🌺 Petal Count</button>
+            <button>🎨 Color</button>
+            <button>🔵 Shape</button>
+            <button>🌿 Leaf Type</button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        🌸 AI Laboratory • Learn AI by Experimenting
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

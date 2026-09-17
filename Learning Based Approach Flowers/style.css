@@ -1,0 +1,836 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7ff, #fff8fb);
+    color: #25254b;
+}
+
+
+/* HEADER */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 7%;
+
+    background: white;
+
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 20;
+}
+
+.logo {
+    font-weight: 800;
+    color: #6557d9;
+}
+
+.topic {
+    font-size: 13px;
+    font-weight: bold;
+    color: #888;
+}
+
+
+/* MAIN */
+
+main {
+    max-width: 1150px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+
+/* HERO */
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 45px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f1edff
+    );
+
+    box-shadow: 0 15px 40px rgba(75, 65, 150, 0.12);
+
+    margin-bottom: 35px;
+}
+
+.badge {
+    display: inline-block;
+
+    background: #e8e4ff;
+
+    color: #5c50c8;
+
+    padding: 8px 15px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 5vw, 60px);
+
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #e65c91;
+}
+
+.hero p {
+    font-size: 18px;
+
+    color: #666;
+
+    max-width: 650px;
+
+    line-height: 1.6;
+}
+
+.question {
+    margin-top: 10px;
+
+    color: #554ac1 !important;
+
+    font-weight: bold;
+}
+
+.robot {
+    font-size: 130px;
+
+    animation: floatRobot 3s ease-in-out infinite;
+}
+
+@keyframes floatRobot {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+}
+
+
+/* FLOW */
+
+.flow {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 50px;
+}
+
+.flow-card {
+    flex: 1;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+
+    transition: 0.3s;
+}
+
+.flow-card:hover {
+    transform: translateY(-8px);
+}
+
+.ai-card {
+    border: 3px solid #b8adff;
+}
+
+.flow-icon {
+    font-size: 45px;
+
+    margin-bottom: 10px;
+}
+
+.flow-card h3 {
+    margin-bottom: 8px;
+}
+
+.flow-card p {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.arrow {
+    font-size: 35px;
+
+    color: #8c80e8;
+}
+
+
+/* SECTION */
+
+.experiment,
+.patterns,
+.clusters,
+.prediction {
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 40px;
+
+    margin-bottom: 35px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.section-title span {
+    color: #7569dc;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.section-title h2 {
+    font-size: 30px;
+
+    margin: 8px 0;
+}
+
+.section-title p {
+    color: #777;
+
+    line-height: 1.6;
+}
+
+
+/* FLOWER DATASET */
+
+.flower-dataset {
+    display: grid;
+
+    grid-template-columns: repeat(10, 1fr);
+
+    gap: 10px;
+
+    max-width: 850px;
+
+    margin: 30px auto;
+}
+
+.flower {
+    height: 65px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 35px;
+
+    background: #f8f8ff;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.flower:hover {
+    transform: scale(1.15) rotate(5deg);
+
+    background: #eeeaff;
+}
+
+.flower.analyzing {
+    animation: analyze 0.6s infinite alternate;
+}
+
+@keyframes analyze {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.15);
+        box-shadow: 0 0 20px #9d91ff;
+    }
+
+}
+
+
+/* BUTTONS */
+
+button {
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+}
+
+.train-button,
+.discover-button,
+.predict-button {
+    display: block;
+
+    margin: 25px auto 0;
+
+    padding: 16px 28px;
+
+    border-radius: 50px;
+
+    background: #6659d8;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    box-shadow: 0 8px 20px rgba(102,89,216,0.25);
+
+    transition: 0.3s;
+}
+
+.train-button:hover,
+.discover-button:hover,
+.predict-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(102,89,216,0.35);
+}
+
+
+/* TRAINING */
+
+.training-area {
+    text-align: center;
+
+    margin: 30px auto;
+
+    max-width: 600px;
+
+    padding: 25px;
+
+    background: #f7f5ff;
+
+    border-radius: 20px;
+}
+
+.brain {
+    font-size: 55px;
+
+    animation: thinking 0.8s infinite alternate;
+}
+
+@keyframes thinking {
+
+    from {
+        transform: rotate(-8deg);
+    }
+
+    to {
+        transform: rotate(8deg);
+    }
+
+}
+
+.progress-container {
+    height: 15px;
+
+    background: #ddd;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-top: 20px;
+}
+
+#progressBar {
+    width: 0%;
+
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #786be2,
+        #ec6ca1
+    );
+
+    transition: width 0.15s;
+}
+
+#progressText {
+    margin-top: 8px;
+
+    font-weight: bold;
+
+    color: #6659d8;
+}
+
+
+/* PATTERN BUTTONS */
+
+.pattern-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+.pattern-btn {
+    padding: 20px 35px;
+
+    border-radius: 20px;
+
+    background: #f5f3ff;
+
+    border: 2px solid transparent;
+
+    color: #403b77;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.pattern-btn small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #888;
+
+    font-size: 12px;
+
+    font-weight: normal;
+}
+
+.pattern-btn.active {
+    border-color: #7669dc;
+
+    background: #ebe8ff;
+
+    transform: scale(1.04);
+}
+
+
+/* CLUSTERS */
+
+.cluster-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.cluster {
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background: #fafaff;
+
+    border: 2px solid #eee;
+
+    min-height: 190px;
+
+    animation: clusterAppear 0.6s ease;
+}
+
+@keyframes clusterAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+.cluster h3 {
+    margin-bottom: 15px;
+}
+
+.cluster-flowers {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.cluster-flowers span {
+    font-size: 35px;
+
+    background: white;
+
+    padding: 7px;
+
+    border-radius: 12px;
+}
+
+
+/* NEW FLOWER */
+
+.new-flower-box {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin: 25px;
+}
+
+.new-flower {
+    width: 120px;
+
+    height: 120px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 70px;
+
+    border-radius: 30px;
+
+    background: #f4f1ff;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.new-flower:hover {
+    transform: scale(1.08) rotate(5deg);
+}
+
+.flower-controls {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.flower-controls label {
+    font-weight: bold;
+}
+
+select {
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    border: 2px solid #ddd;
+
+    font-size: 15px;
+
+    background: white;
+}
+
+
+/* PREDICTION */
+
+.prediction-result {
+    max-width: 550px;
+
+    margin: 30px auto;
+
+    text-align: center;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background: #f6f4ff;
+
+    animation: resultAppear 0.5s ease;
+}
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+}
+
+.prediction-icon {
+    font-size: 55px;
+}
+
+.confidence {
+    margin: 20px 0;
+}
+
+.confidence-bar {
+    height: 16px;
+
+    background: #ddd;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-bottom: 8px;
+}
+
+#confidenceFill {
+    height: 100%;
+
+    width: 0%;
+
+    background: linear-gradient(
+        90deg,
+        #6e62d9,
+        #e86a9c
+    );
+
+    transition: width 1s;
+}
+
+
+/* LEARNING */
+
+.learning {
+    display: flex;
+
+    gap: 25px;
+
+    align-items: flex-start;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #fff6df,
+        #fffaf0
+    );
+
+    margin-bottom: 35px;
+}
+
+.learning-icon {
+    font-size: 55px;
+}
+
+.learning h2 {
+    margin-bottom: 10px;
+}
+
+.learning p {
+    color: #666;
+
+    line-height: 1.7;
+}
+
+.lesson-points {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+}
+
+.lesson-points div {
+    background: white;
+
+    padding: 10px 15px;
+
+    border-radius: 15px;
+
+    font-size: 14px;
+}
+
+
+/* CHALLENGE */
+
+.challenge {
+    text-align: center;
+
+    padding: 40px;
+
+    background: #eeeaff;
+
+    border-radius: 25px;
+
+    margin-bottom: 30px;
+}
+
+.challenge p {
+    color: #666;
+
+    margin: 10px;
+}
+
+.ideas {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.ideas button {
+    background: white;
+
+    padding: 12px 18px;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+}
+
+.ideas button:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+
+/* UTILITY */
+
+.hidden {
+    display: none;
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px) {
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 25px;
+    }
+
+    .robot {
+        font-size: 90px;
+    }
+
+    .flow {
+        flex-direction: column;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+    }
+
+    .flower-dataset {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .cluster-container {
+        grid-template-columns: 1fr;
+    }
+
+    .pattern-buttons {
+        flex-direction: column;
+    }
+
+    .learning {
+        flex-direction: column;
+    }
+
+}
