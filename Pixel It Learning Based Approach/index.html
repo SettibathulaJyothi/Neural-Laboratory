@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pixel It - Learning Based Approach</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="badge">🧠 AI LABORATORY</div>
+
+    <h1>Pixel It! 🔲</h1>
+
+    <p>
+        Teach the computer how pixels can represent and recognize letters.
+    </p>
+</header>
+
+
+<main>
+
+    <!-- HOW IT WORKS -->
+    <section class="info-card">
+
+        <h2>🎯 Your Mission</h2>
+
+        <div class="steps">
+
+            <div class="step">
+                <span>1</span>
+                <b>Draw</b>
+                <small>Create a letter using pixels.</small>
+            </div>
+
+            <div class="step">
+                <span>2</span>
+                <b>Label</b>
+                <small>Tell the computer which letter it is.</small>
+            </div>
+
+            <div class="step">
+                <span>3</span>
+                <b>Train</b>
+                <small>Let the computer learn the pattern.</small>
+            </div>
+
+            <div class="step">
+                <span>4</span>
+                <b>Test</b>
+                <small>Give it a new letter.</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRAINING AREA -->
+    <section class="workspace">
+
+        <div class="panel">
+
+            <h2>✏️ Step 1 — Create a Training Example</h2>
+
+            <p class="instruction">
+                Click the squares to create a letter.
+            </p>
+
+            <div id="trainingGrid" class="pixel-grid"></div>
+
+            <div class="label-area">
+
+                <label for="letterInput">
+                    What letter did you draw?
+                </label>
+
+                <input
+                    id="letterInput"
+                    type="text"
+                    maxlength="1"
+                    placeholder="A"
+                >
+
+            </div>
+
+            <div class="buttons">
+
+                <button id="addExample" class="primary">
+                    ➕ Add Training Example
+                </button>
+
+                <button id="clearTraining" class="secondary">
+                    🧹 Clear
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRAINING DATA -->
+        <div class="panel">
+
+            <h2>🧠 Step 2 — Training Data</h2>
+
+            <div id="trainingData" class="training-data">
+
+                <div class="empty">
+                    No examples yet.
+                    <br>
+                    Create a letter and add it!
+                </div>
+
+            </div>
+
+            <button id="trainAI" class="train-button">
+                🚀 Train AI
+            </button>
+
+            <div id="trainingStatus" class="status">
+                AI is waiting for training...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TEST AREA -->
+    <section class="test-section">
+
+        <h2>🔍 Step 3 — Test the AI</h2>
+
+        <p>
+            Draw a new letter and ask the AI what it thinks it is.
+        </p>
+
+        <div class="test-area">
+
+            <div>
+
+                <div id="testGrid" class="pixel-grid"></div>
+
+                <div class="buttons">
+
+                    <button id="predictButton" class="predict">
+                        🤖 Predict Letter
+                    </button>
+
+                    <button id="clearTest" class="secondary">
+                        🧹 Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESULT -->
+            <div class="result-card">
+
+                <div class="robot">🤖</div>
+
+                <h3>AI Prediction</h3>
+
+                <div id="prediction">
+                    ?
+                </div>
+
+                <div id="confidence">
+                    Draw something and test it!
+                </div>
+
+                <div class="confidence-bar">
+                    <div id="confidenceFill"></div>
+                </div>
+
+                <p id="explanation">
+                    The AI will compare the pixel pattern
+                    with the examples it learned.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PIXEL DATA -->
+    <section class="data-section">
+
+        <h2>🔢 What Does the Computer See?</h2>
+
+        <p>
+            Humans see a letter. A computer sees pixels represented by
+            numbers.
+        </p>
+
+        <div class="data-box">
+
+            <div>
+                <h3>⬜ Empty Pixel</h3>
+                <span class="zero">0</span>
+            </div>
+
+            <div>
+                <h3>⬛ Filled Pixel</h3>
+                <span class="one">1</span>
+            </div>
+
+        </div>
+
+        <div id="binaryOutput" class="binary-output">
+            Your pixel data will appear here.
+        </div>
+
+    </section>
+
+
+    <!-- CONCEPT -->
+    <section class="concept">
+
+        <h2>💡 What Did You Learn?</h2>
+
+        <div class="concept-flow">
+
+            <div>✏️<br><b>Letter</b></div>
+
+            <span>→</span>
+
+            <div>🔲<br><b>Pixels</b></div>
+
+            <span>→</span>
+
+            <div>🔢<br><b>Numbers</b></div>
+
+            <span>→</span>
+
+            <div>🧠<br><b>Learning</b></div>
+
+            <span>→</span>
+
+            <div>🤖<br><b>Prediction</b></div>
+
+        </div>
+
+        <p>
+            This is the basic idea behind how computers can learn
+            patterns from data.
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>AI Laboratory • Pixel It — Learning-Based Approach</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
