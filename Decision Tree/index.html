@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Decision Tree - Rule Based AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header>
+        <div class="badge">🌳 AI LEARNING LAB</div>
+
+        <h1>Decision Tree</h1>
+
+        <h2>Rule-Based Approach</h2>
+
+        <p>
+            Learn how AI makes decisions by asking questions,
+            following branches, and reaching a final answer.
+        </p>
+    </header>
+
+
+    <!-- NAVIGATION -->
+    <nav class="tabs">
+
+        <button class="tab active" data-page="learn">
+            🌱 Learn
+        </button>
+
+        <button class="tab" data-page="follow">
+            🔎 Follow the Tree
+        </button>
+
+        <button class="tab" data-page="challenge">
+            🎮 Challenge
+        </button>
+
+    </nav>
+
+
+    <!-- ================= LEARN ================= -->
+
+    <section id="learn" class="page active-page">
+
+        <div class="card">
+
+            <h2>🧠 What is a Decision Tree?</h2>
+
+            <p>
+                Imagine AI is playing a guessing game.
+                Instead of guessing randomly, it asks a series of
+                simple questions.
+            </p>
+
+            <div class="rule-box">
+
+                <strong>IF</strong> a condition is true
+
+                <span>➡️</span>
+
+                follow one branch
+
+                <br>
+
+                <strong>ELSE</strong>
+
+                <span>➡️</span>
+
+                follow another branch.
+
+            </div>
+
+            <p>
+                The AI continues until it reaches a final answer.
+                This final answer is called a <strong>Leaf Node</strong>.
+            </p>
+
+        </div>
+
+
+        <!-- TREE -->
+
+        <div class="card">
+
+            <h2>🌳 Explore the Decision Tree</h2>
+
+            <p>
+                Click the different parts of the tree.
+            </p>
+
+            <div class="tree-container">
+
+                <svg viewBox="0 0 800 520">
+
+                    <!-- CONNECTIONS -->
+
+                    <line
+                        x1="400"
+                        y1="80"
+                        x2="190"
+                        y2="180"
+                        class="connection"
+                    />
+
+                    <line
+                        x1="400"
+                        y1="80"
+                        x2="610"
+                        y2="180"
+                        class="connection"
+                    />
+
+                    <line
+                        x1="610"
+                        y1="230"
+                        x2="470"
+                        y2="330"
+                        class="connection"
+                    />
+
+                    <line
+                        x1="610"
+                        y1="230"
+                        x2="700"
+                        y2="330"
+                        class="connection"
+                    />
+
+                    <line
+                        x1="470"
+                        y1="380"
+                        x2="390"
+                        y2="460"
+                        class="connection"
+                    />
+
+                    <line
+                        x1="470"
+                        y1="380"
+                        x2="550"
+                        y2="460"
+                        class="connection"
+                    />
+
+
+                    <!-- BRANCH LABELS -->
+
+                    <text x="280" y="130" class="branch-label">
+                        YES
+                    </text>
+
+                    <text x="500" y="130" class="branch-label">
+                        NO
+                    </text>
+
+                    <text x="515" y="285" class="branch-label">
+                        NO
+                    </text>
+
+                    <text x="650" y="285" class="branch-label">
+                        YES
+                    </text>
+
+                    <text x="405" y="425" class="branch-label">
+                        YES
+                    </text>
+
+                    <text x="530" y="425" class="branch-label">
+                        NO
+                    </text>
+
+
+                    <!-- ROOT -->
+
+                    <g class="tree-node" data-type="root">
+
+                        <rect
+                            x="300"
+                            y="30"
+                            width="200"
+                            height="55"
+                            rx="15"
+                        />
+
+                        <text x="400" y="64">
+                            HEIGHT &gt; 5.9?
+                        </text>
+
+                    </g>
+
+
+                    <!-- MALE -->
+
+                    <g class="tree-node" data-type="leaf">
+
+                        <ellipse
+                            cx="190"
+                            cy="205"
+                            rx="85"
+                            ry="35"
+                        />
+
+                        <text x="190" y="211">
+                            MALE
+                        </text>
+
+                    </g>
+
+
+                    <!-- WEIGHT -->
+
+                    <g class="tree-node" data-type="decision">
+
+                        <rect
+                            x="525"
+                            y="180"
+                            width="170"
+                            height="55"
+                            rx="15"
+                        />
+
+                        <text x="610" y="214">
+                            WEIGHT ≤ 150?
+                        </text>
+
+                    </g>
+
+
+                    <!-- FEMALE -->
+
+                    <g class="tree-node" data-type="leaf">
+
+                        <ellipse
+                            cx="700"
+                            cy="355"
+                            rx="75"
+                            ry="35"
+                        />
+
+                        <text x="700" y="361">
+                            FEMALE
+                        </text>
+
+                    </g>
+
+
+                    <!-- FOOT SIZE -->
+
+                    <g class="tree-node" data-type="decision">
+
+                        <rect
+                            x="385"
+                            y="330"
+                            width="170"
+                            height="55"
+                            rx="15"
+                        />
+
+                        <text x="470" y="364">
+                            FOOT SIZE ≥ 10?
+                        </text>
+
+                    </g>
+
+
+                    <!-- MALE -->
+
+                    <g class="tree-node" data-type="leaf">
+
+                        <ellipse
+                            cx="390"
+                            cy="470"
+                            rx="70"
+                            ry="30"
+                        />
+
+                        <text x="390" y="476">
+                            MALE
+                        </text>
+
+                    </g>
+
+
+                    <!-- FEMALE -->
+
+                    <g class="tree-node" data-type="leaf">
+
+                        <ellipse
+                            cx="550"
+                            cy="470"
+                            rx="70"
+                            ry="30"
+                        />
+
+                        <text x="550" y="476">
+                            FEMALE
+                        </text>
+
+                    </g>
+
+                </svg>
+
+            </div>
+
+
+            <!-- EXPLANATION -->
+
+            <div
+                id="nodeExplanation"
+                class="explanation"
+            >
+
+                👆 Click a node to understand it.
+
+            </div>
+
+        </div>
+
+
+        <!-- CONCEPTS -->
+
+        <div class="concept-grid">
+
+            <div class="concept">
+                🌱
+                <h3>Root Node</h3>
+                <p>
+                    The first question where the decision tree begins.
+                </p>
+            </div>
+
+            <div class="concept">
+                🔀
+                <h3>Branch</h3>
+                <p>
+                    The path followed after answering a question.
+                </p>
+            </div>
+
+            <div class="concept">
+                ❓
+                <h3>Decision Node</h3>
+                <p>
+                    A question that helps divide the data.
+                </p>
+            </div>
+
+            <div class="concept">
+                🍃
+                <h3>Leaf Node</h3>
+                <p>
+                    The final prediction. No more questions.
+                </p>
+            </div>
+
+            <div class="concept">
+                👆
+                <h3>Parent Node</h3>
+                <p>
+                    A node located above another node.
+                </p>
+            </div>
+
+            <div class="concept">
+                👇
+                <h3>Child Node</h3>
+                <p>
+                    A node that comes below another node.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOLLOW TREE ================= -->
+
+    <section id="follow" class="page">
+
+        <div class="card">
+
+            <h2>🔎 Follow the AI's Thinking</h2>
+
+            <p>
+                Now you become the AI!
+                Follow the questions and choose YES or NO.
+            </p>
+
+
+            <div class="person-card">
+
+                <div class="person-icon">
+                    🧑
+                </div>
+
+                <h3>Person A</h3>
+
+                <div class="facts">
+
+                    <div>
+                        <span>Height</span>
+                        <strong>6.2 ft</strong>
+                    </div>
+
+                    <div>
+                        <span>Weight</span>
+                        <strong>140 lb</strong>
+                    </div>
+
+                    <div>
+                        <span>Foot Size</span>
+                        <strong>10.5</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="ai-question">
+
+                <div class="question-number">
+                    Question <span id="questionNumber">1</span>
+                </div>
+
+                <h2 id="followQuestion">
+                    Is height greater than 5.9 ft?
+                </h2>
+
+
+                <div class="answer-buttons">
+
+                    <button id="yesButton">
+                        ✅ YES
+                    </button>
+
+                    <button id="noButton">
+                        ❌ NO
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="followFeedback"
+                    class="feedback"
+                ></div>
+
+            </div>
+
+
+            <div class="journey">
+
+                <div class="journey-step active">
+                    🌱 Start
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="journey-step">
+                    ❓ Question
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="journey-step">
+                    🔀 Branch
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="journey-step">
+                    🍃 Answer
+                </div>
+
+            </div>
+
+
+            <button
+                id="resetFollow"
+                class="secondary"
+            >
+                🔄 Start Again
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>💡 What just happened?</h2>
+
+            <p>
+                The AI did not randomly choose "Male".
+            </p>
+
+            <div class="big-rule">
+
+                IF height &gt; 5.9
+
+                <br>
+
+                AND
+
+                <br>
+
+                weight ≤ 150
+
+                <br><br>
+
+                ➡️ Prediction = <strong>MALE</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CHALLENGE ================= -->
+
+    <section id="challenge" class="page">
+
+        <div class="card">
+
+            <h2>🎮 Decision Tree Detective</h2>
+
+            <p>
+                Can you think like the AI?
+            </p>
+
+            <div class="score-area">
+
+                ⭐ Score:
+                <strong id="score">0</strong>
+
+                <span>
+                    Question
+                    <strong id="challengeNumber">1</strong>
+                    / 5
+                </span>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div id="progressBar"></div>
+
+            </div>
+
+
+            <div
+                id="challengeContent"
+                class="challenge-content"
+            ></div>
+
+
+            <div
+                id="challengeFeedback"
+                class="feedback"
+            ></div>
+
+
+            <button
+                id="nextButton"
+                class="primary"
+                hidden
+            >
+                Next Question →
+            </button>
+
+
+            <button
+                id="restartButton"
+                class="secondary"
+                hidden
+            >
+                🔄 Try Again
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        🌳 <strong>Remember:</strong>
+
+        A Decision Tree asks questions,
+
+        follows rules,
+
+        and reaches a final decision.
+
+    </footer>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
