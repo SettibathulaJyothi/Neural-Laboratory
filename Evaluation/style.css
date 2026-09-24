@@ -1,0 +1,1335 @@
+/* =====================================================
+   AI EVALUATION LAB
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef6ff,
+            #ffffff,
+            #f6f1ff
+        );
+
+    color: #273142;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #263b80,
+            #536bd8
+        );
+
+    color: white;
+
+    padding: 25px 20px;
+
+}
+
+
+.header-content {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+
+.robot-icon {
+
+    font-size: 55px;
+
+}
+
+
+.header h1 {
+
+    font-size: 32px;
+
+}
+
+
+.header p {
+
+    opacity: 0.9;
+
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.container {
+
+    width: min(1100px, 94%);
+
+    margin: 30px auto;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro-card {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.08);
+
+}
+
+
+.intro-card h2 {
+
+    color: #30458f;
+
+    margin-bottom: 8px;
+
+}
+
+
+.simple-flow {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+}
+
+
+.flow-box {
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+
+    display: flex;
+
+    gap: 8px;
+
+    align-items: center;
+
+}
+
+
+.prediction-flow {
+
+    background: #ffe6f0;
+
+}
+
+
+.reality-flow {
+
+    background: #e7f7ec;
+
+}
+
+
+.evaluation-flow {
+
+    background: #fff3c9;
+
+}
+
+
+.flow-arrow {
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   QUESTION
+===================================================== */
+
+.question-card {
+
+    margin-top: 20px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 22px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.08);
+
+}
+
+
+.student-icon {
+
+    font-size: 65px;
+
+}
+
+
+.question-card h2 {
+
+    color: #30458f;
+
+}
+
+
+.question-card p {
+
+    font-size: 20px;
+
+}
+
+
+.small-text {
+
+    font-size: 14px !important;
+
+    color: #697386;
+
+}
+
+
+/* =====================================================
+   CASE SECTION
+===================================================== */
+
+.cases-section {
+
+    margin-top: 30px;
+
+}
+
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =====================================================
+   CASE BUTTONS
+===================================================== */
+
+.case-buttons {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+}
+
+
+.case-button {
+
+    border: none;
+
+    background: #e8ebf1;
+
+    padding: 13px;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    color: #344054;
+
+    transition: 0.2s;
+
+}
+
+
+.case-button small {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: #667085;
+
+}
+
+
+.case-button:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+.case-button.active {
+
+    background: #536bd8;
+
+    color: white;
+
+}
+
+
+.case-button.active small {
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   CASE HEADING
+===================================================== */
+
+.case-heading {
+
+    text-align: center;
+
+    margin: 25px 0 15px;
+
+}
+
+
+.case-heading span {
+
+    color: #536bd8;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+
+.case-heading h2 {
+
+    color: #303b50;
+
+}
+
+
+/* =====================================================
+   EVALUATION BOARD
+===================================================== */
+
+.evaluation-board {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.09);
+
+}
+
+
+/* =====================================================
+   GAUGE
+===================================================== */
+
+.gauge-wrapper {
+
+    width: min(560px, 100%);
+
+    margin: auto;
+
+}
+
+
+.gauge-title {
+
+    text-align: center;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+}
+
+
+.gauge {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 280px;
+
+    overflow: hidden;
+
+}
+
+
+/* OUTER SEMICIRCLE */
+
+.segment {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 470px;
+
+    height: 235px;
+
+    transform-origin: 50% 100%;
+
+    border-radius:
+        470px 470px 0 0;
+
+}
+
+
+/*
+   Instead of five separate curved divs,
+   the colored sections are made using
+   CSS conic-gradient.
+*/
+
+.gauge::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 470px;
+
+    height: 470px;
+
+    left: 50%;
+
+    bottom: 0;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+
+        conic-gradient(
+            from 270deg,
+
+            #ef6464 0deg 36deg,
+
+            #efa84e 36deg 72deg,
+
+            #eeee64 72deg 108deg,
+
+            #82ca72 108deg 144deg,
+
+            #3b9b58 144deg 180deg,
+
+            transparent 180deg 360deg
+        );
+
+}
+
+
+/* INNER WHITE AREA */
+
+.gauge::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 150px;
+
+    left: 50%;
+
+    bottom: 0;
+
+    transform:
+        translateX(-50%);
+
+    background: white;
+
+    border-radius:
+        300px 300px 0 0;
+
+}
+
+
+/* =====================================================
+   FACES
+===================================================== */
+
+.face {
+
+    position: absolute;
+
+    width: 54px;
+
+    height: 54px;
+
+    border-radius: 50%;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* face positions */
+
+.face-1 {
+
+    left: 9%;
+
+    bottom: 75px;
+
+    color: #d64545;
+
+}
+
+
+.face-2 {
+
+    left: 25%;
+
+    bottom: 160px;
+
+    color: #d18a31;
+
+}
+
+
+.face-3 {
+
+    left: 44%;
+
+    bottom: 185px;
+
+    color: #b5b52e;
+
+}
+
+
+.face-4 {
+
+    right: 25%;
+
+    bottom: 160px;
+
+    color: #31984e;
+
+}
+
+
+.face-5 {
+
+    right: 9%;
+
+    bottom: 75px;
+
+    color: #168447;
+
+}
+
+
+/* eyes */
+
+.eyes {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    letter-spacing: 8px;
+
+    line-height: 15px;
+
+}
+
+
+/* mouth */
+
+.mouth {
+
+    width: 20px;
+
+    height: 10px;
+
+    border-bottom:
+        3px solid currentColor;
+
+    border-radius:
+        0 0 20px 20px;
+
+    margin-top: 6px;
+
+}
+
+
+.sad-mouth {
+
+    border-bottom: none;
+
+    border-top:
+        3px solid currentColor;
+
+    border-radius:
+        20px 20px 0 0;
+
+}
+
+
+.unhappy-mouth {
+
+    width: 18px;
+
+}
+
+
+.neutral-mouth {
+
+    width: 20px;
+
+    border-bottom:
+        3px solid currentColor;
+
+    border-radius: 0;
+
+}
+
+
+.smile-mouth {
+
+    width: 20px;
+
+}
+
+
+.big-smile-mouth {
+
+    width: 23px;
+
+    height: 12px;
+
+}
+
+
+/* =====================================================
+   NEEDLE
+===================================================== */
+
+.needle {
+
+    position: absolute;
+
+    z-index: 10;
+
+    width: 5px;
+
+    height: 145px;
+
+    left: 50%;
+
+    bottom: 0;
+
+    background: #34383f;
+
+    border-radius: 10px;
+
+    transform-origin:
+        50% 100%;
+
+    transform:
+        translateX(-50%)
+        rotate(65deg);
+
+    transition:
+        transform 0.9s
+        cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        );
+
+}
+
+
+/* needle center */
+
+.needle-center {
+
+    position: absolute;
+
+    width: 22px;
+
+    height: 22px;
+
+    background: #34383f;
+
+    border-radius: 50%;
+
+    left: 50%;
+
+    bottom: -10px;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+/* =====================================================
+   GAUGE LABELS
+===================================================== */
+
+.gauge-labels {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    width: 85%;
+
+    margin:
+        -5px auto 0;
+
+    color: #687385;
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+   COMPARISON
+===================================================== */
+
+.comparison-area {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 30px;
+
+    margin-top: 20px;
+
+}
+
+
+.comparison-item {
+
+    width: 240px;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+}
+
+
+.prediction-box {
+
+    background: #ffeaf1;
+
+    border: 2px solid #e9a5bb;
+
+}
+
+
+.reality-box {
+
+    background: #e9f8ed;
+
+    border: 2px solid #8acb9c;
+
+}
+
+
+.comparison-icon {
+
+    font-size: 32px;
+
+}
+
+
+.comparison-label {
+
+    font-size: 13px;
+
+    color: #667085;
+
+    text-transform: uppercase;
+
+}
+
+
+.comparison-value {
+
+    font-size: 28px;
+
+    font-weight: 900;
+
+}
+
+
+.comparison-symbol {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #667085;
+
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+.result-banner {
+
+    margin:
+        20px auto 0;
+
+    width: min(500px, 100%);
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    background: #e4f7ea;
+
+    color: #17663b;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    transition: 0.3s;
+
+}
+
+
+.result-banner.false {
+
+    background: #fde8e8;
+
+    color: #a72e2e;
+
+}
+
+
+.result-icon {
+
+    font-size: 35px;
+
+}
+
+
+.result-small {
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.result-title {
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+}
+
+
+/* =====================================================
+   EXPLANATION
+===================================================== */
+
+.explanation {
+
+    margin-top: 18px;
+
+    background: #fff8e8;
+
+    border-left:
+        5px solid #e2b24e;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    display: flex;
+
+    gap: 12px;
+
+}
+
+
+.bulb {
+
+    font-size: 28px;
+
+}
+
+
+.explanation strong {
+
+    color: #9b6c17;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.navigation {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 18px;
+
+}
+
+
+.nav-button {
+
+    border: none;
+
+    background: #30458f;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.nav-button:hover {
+
+    background: #536bd8;
+
+}
+
+
+.case-counter {
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+.summary-section {
+
+    margin-top: 35px;
+
+}
+
+
+.summary-section h2 {
+
+    text-align: center;
+
+    margin-bottom: 18px;
+
+}
+
+
+.summary-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.summary-card {
+
+    background: white;
+
+    padding: 18px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,0.07);
+
+}
+
+
+.summary-face {
+
+    font-size: 42px;
+
+}
+
+
+.summary-card h3 {
+
+    margin: 5px 0 10px;
+
+}
+
+
+.summary-card p {
+
+    font-size: 13px;
+
+}
+
+
+.true-positive {
+
+    border-top:
+        6px solid #3b9b58;
+
+}
+
+
+.true-negative {
+
+    border-top:
+        6px solid #65adce;
+
+}
+
+
+.false-positive {
+
+    border-top:
+        6px solid #efa84e;
+
+}
+
+
+.false-negative {
+
+    border-top:
+        6px solid #ef6464;
+
+}
+
+
+/* =====================================================
+   CHALLENGE
+===================================================== */
+
+.challenge-section {
+
+    margin-top: 35px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.08);
+
+}
+
+
+.challenge-section h2 {
+
+    color: #30458f;
+
+}
+
+
+.challenge-buttons {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin-top: 18px;
+
+}
+
+
+.challenge-buttons button {
+
+    border: 2px solid #dce1eb;
+
+    background: white;
+
+    padding: 13px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.challenge-buttons button:hover {
+
+    border-color: #536bd8;
+
+    background: #f1f3ff;
+
+}
+
+
+.challenge-result {
+
+    min-height: 30px;
+
+    margin-top: 15px;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    margin-top: 40px;
+
+    padding: 25px;
+
+    background: #202b57;
+
+    color: white;
+
+    text-align: center;
+
+}
+
+
+footer span {
+
+    font-size: 13px;
+
+    opacity: 0.8;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .case-buttons {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .summary-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .challenge-buttons {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .header-content {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+
+    .question-card {
+
+        flex-direction: column;
+
+    }
+
+
+    .comparison-area {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+    .comparison-symbol {
+
+        transform:
+            rotate(90deg);
+
+    }
+
+
+    .summary-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .challenge-buttons {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .gauge {
+
+        transform:
+            scale(0.85);
+
+        transform-origin:
+            top center;
+
+        margin-bottom: -40px;
+
+    }
+
+}

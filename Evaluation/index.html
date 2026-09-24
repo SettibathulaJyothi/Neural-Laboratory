@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Evaluation Lab</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <div class="robot-icon">
+                🤖
+            </div>
+
+            <div>
+                <h1>AI Evaluation Lab</h1>
+
+                <p>
+                    Let's find out whether the AI prediction was correct!
+                </p>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+
+        <!-- INTRODUCTION -->
+
+        <section class="intro-card">
+
+            <h2>🔍 What is Evaluation?</h2>
+
+            <p>
+                AI makes a prediction. After we know what really happened,
+                we compare the <strong>Prediction</strong> with <strong>Reality</strong>.
+            </p>
+
+            <div class="simple-flow">
+
+                <div class="flow-box prediction-flow">
+                    🤖
+                    <span>AI Prediction</span>
+                </div>
+
+                <div class="flow-arrow">
+                    ➜
+                </div>
+
+                <div class="flow-box reality-flow">
+                    🌎
+                    <span>Reality</span>
+                </div>
+
+                <div class="flow-arrow">
+                    ➜
+                </div>
+
+                <div class="flow-box evaluation-flow">
+                    🔍
+                    <span>Evaluation</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUESTION -->
+
+        <section class="question-card">
+
+            <div class="student-icon">
+                👩‍🎓
+            </div>
+
+            <div>
+
+                <h2>Our AI Question</h2>
+
+                <p>
+                    <strong>Will the student get a Perfect Score?</strong>
+                </p>
+
+                <p class="small-text">
+                    The AI predicts YES or NO.
+                    We then check what really happened.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CASE SELECTOR ================= -->
+
+        <section class="cases-section">
+
+            <h2 class="section-title">
+                🎯 Explore the 4 Cases
+            </h2>
+
+
+            <div class="case-buttons">
+
+                <button
+                    class="case-button active"
+                    data-case="1">
+
+                    Case 1
+
+                    <small>
+                        YES → YES
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="case-button"
+                    data-case="2">
+
+                    Case 2
+
+                    <small>
+                        NO → NO
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="case-button"
+                    data-case="3">
+
+                    Case 3
+
+                    <small>
+                        YES → NO
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="case-button"
+                    data-case="4">
+
+                    Case 4
+
+                    <small>
+                        NO → YES
+                    </small>
+
+                </button>
+
+            </div>
+
+
+            <!-- CASE TITLE -->
+
+            <div class="case-heading">
+
+                <span id="caseLabel">
+                    CASE 1
+                </span>
+
+                <h2 id="caseTitle">
+                    Is There a Perfect Score?
+                </h2>
+
+            </div>
+
+
+            <!-- ================= EVALUATION BOARD ================= -->
+
+            <section class="evaluation-board">
+
+
+                <!-- GAUGE -->
+
+                <div class="gauge-wrapper">
+
+                    <div class="gauge-title">
+                        AI Evaluation
+                    </div>
+
+
+                    <div class="gauge">
+
+                        <!-- COLORED ARC -->
+
+                        <div class="segment segment-red"></div>
+
+                        <div class="segment segment-orange"></div>
+
+                        <div class="segment segment-yellow"></div>
+
+                        <div class="segment segment-lightgreen"></div>
+
+                        <div class="segment segment-green"></div>
+
+
+                        <!-- FACES -->
+
+                        <div class="face face-1">
+
+                            <div class="eyes sad-eyes">
+                                ×
+                                ×
+                            </div>
+
+                            <div class="mouth sad-mouth">
+                            </div>
+
+                        </div>
+
+
+                        <div class="face face-2">
+
+                            <div class="eyes">
+                                •
+                                •
+                            </div>
+
+                            <div class="mouth unhappy-mouth">
+                            </div>
+
+                        </div>
+
+
+                        <div class="face face-3">
+
+                            <div class="eyes">
+                                •
+                                •
+                            </div>
+
+                            <div class="mouth neutral-mouth">
+                            </div>
+
+                        </div>
+
+
+                        <div class="face face-4">
+
+                            <div class="eyes">
+                                •
+                                •
+                            </div>
+
+                            <div class="mouth smile-mouth">
+                            </div>
+
+                        </div>
+
+
+                        <div class="face face-5">
+
+                            <div class="eyes">
+                                •
+                                •
+                            </div>
+
+                            <div class="mouth big-smile-mouth">
+                            </div>
+
+                        </div>
+
+
+                        <!-- NEEDLE -->
+
+                        <div
+                            class="needle"
+                            id="needle">
+
+                            <div class="needle-center">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- GAUGE LABELS -->
+
+                    <div class="gauge-labels">
+
+                        <span>
+                            Incorrect
+                        </span>
+
+                        <span>
+                            Correct
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= COMPARISON ================= -->
+
+                <div class="comparison-area">
+
+
+                    <div class="comparison-item prediction-box">
+
+                        <div class="comparison-icon">
+                            🤖
+                        </div>
+
+                        <div class="comparison-label">
+                            Prediction
+                        </div>
+
+                        <div
+                            class="comparison-value"
+                            id="predictionValue">
+
+                            YES
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="comparison-symbol">
+                        VS
+                    </div>
+
+
+                    <div class="comparison-item reality-box">
+
+                        <div class="comparison-icon">
+                            🌎
+                        </div>
+
+                        <div class="comparison-label">
+                            Reality
+                        </div>
+
+                        <div
+                            class="comparison-value"
+                            id="realityValue">
+
+                            YES
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- RESULT -->
+
+                <div
+                    class="result-banner"
+                    id="resultBanner">
+
+                    <div
+                        class="result-icon"
+                        id="resultIcon">
+
+                        🎯
+
+                    </div>
+
+                    <div>
+
+                        <div class="result-small">
+                            EVALUATION RESULT
+                        </div>
+
+                        <div
+                            class="result-title"
+                            id="resultTitle">
+
+                            TRUE POSITIVE
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXPLANATION -->
+
+                <div class="explanation">
+
+                    <div class="bulb">
+                        💡
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            What happened?
+                        </strong>
+
+                        <p id="explanationText">
+
+                            AI predicted YES and reality was YES.
+                            The prediction was correct.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= CASE CONTROLS ================= -->
+
+            <div class="navigation">
+
+                <button
+                    id="previousButton"
+                    class="nav-button">
+
+                    ← Previous Case
+
+                </button>
+
+
+                <div class="case-counter">
+
+                    <span id="currentCase">
+                        1
+                    </span>
+
+                    / 4
+
+                </div>
+
+
+                <button
+                    id="nextButton"
+                    class="nav-button">
+
+                    Next Case →
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= FOUR CASE SUMMARY ================= -->
+
+        <section class="summary-section">
+
+            <h2>
+                🧠 Remember the 4 Cases
+            </h2>
+
+
+            <div class="summary-grid">
+
+
+                <div class="summary-card true-positive">
+
+                    <div class="summary-face">
+                        😄
+                    </div>
+
+                    <h3>
+                        True Positive
+                    </h3>
+
+                    <p>
+                        Prediction: <strong>YES</strong>
+                    </p>
+
+                    <p>
+                        Reality: <strong>YES</strong>
+                    </p>
+
+                </div>
+
+
+                <div class="summary-card true-negative">
+
+                    <div class="summary-face">
+                        🙂
+                    </div>
+
+                    <h3>
+                        True Negative
+                    </h3>
+
+                    <p>
+                        Prediction: <strong>NO</strong>
+                    </p>
+
+                    <p>
+                        Reality: <strong>NO</strong>
+                    </p>
+
+                </div>
+
+
+                <div class="summary-card false-positive">
+
+                    <div class="summary-face">
+                        😟
+                    </div>
+
+                    <h3>
+                        False Positive
+                    </h3>
+
+                    <p>
+                        Prediction: <strong>YES</strong>
+                    </p>
+
+                    <p>
+                        Reality: <strong>NO</strong>
+                    </p>
+
+                </div>
+
+
+                <div class="summary-card false-negative">
+
+                    <div class="summary-face">
+                        😣
+                    </div>
+
+                    <h3>
+                        False Negative
+                    </h3>
+
+                    <p>
+                        Prediction: <strong>NO</strong>
+                    </p>
+
+                    <p>
+                        Reality: <strong>YES</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INTERACTIVE CHALLENGE ================= -->
+
+        <section class="challenge-section">
+
+            <h2>
+                🎮 Think Like the AI Evaluator
+            </h2>
+
+            <p id="challengeQuestion">
+
+                AI says YES.
+                Reality says NO.
+                What is the result?
+
+            </p>
+
+
+            <div class="challenge-buttons">
+
+                <button data-answer="TP">
+                    True Positive
+                </button>
+
+                <button data-answer="TN">
+                    True Negative
+                </button>
+
+                <button data-answer="FP">
+                    False Positive
+                </button>
+
+                <button data-answer="FN">
+                    False Negative
+                </button>
+
+            </div>
+
+
+            <div
+                id="challengeResult"
+                class="challenge-result">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        🤖 AI Evaluation Lab
+        <br>
+
+        <span>
+            Learn AI by seeing how predictions compare with reality.
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
