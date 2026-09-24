@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Data Acquisition AI Lab</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="badge">🤖 AI DATA LITERACY</div>
+
+        <h1>📦 Data Acquisition Lab</h1>
+
+        <p>
+            How does an AI system get the data it needs to learn?
+        </p>
+
+        <div class="memory-line">
+            <span>🔎 FIND</span>
+            <span>→</span>
+            <span>🔄 CHANGE</span>
+            <span>→</span>
+            <span>🎛️ CREATE</span>
+        </div>
+
+    </header>
+
+
+    <!-- INTRODUCTION -->
+    <section class="intro-card">
+
+        <div class="intro-icon">
+            📊
+        </div>
+
+        <div>
+
+            <h2>What is Data Acquisition?</h2>
+
+            <p>
+                <b>Data Acquisition</b> means collecting or creating the
+                data required to train an AI model.
+            </p>
+
+            <p>
+                Imagine we want to teach an AI to identify cars.
+                First, we need lots of useful car data!
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- THREE METHODS -->
+    <section class="methods">
+
+        <button class="method active" data-method="discovery">
+
+            <span class="method-number">1</span>
+
+            <span>
+                🔎
+                <b>Data Discovery</b>
+                <small>Find existing data</small>
+            </span>
+
+        </button>
+
+
+        <button class="method" data-method="augmentation">
+
+            <span class="method-number">2</span>
+
+            <span>
+                🔄
+                <b>Data Augmentation</b>
+                <small>Create variations</small>
+            </span>
+
+        </button>
+
+
+        <button class="method" data-method="generation">
+
+            <span class="method-number">3</span>
+
+            <span>
+                🎛️
+                <b>Data Generation</b>
+                <small>Create new data</small>
+            </span>
+
+        </button>
+
+    </section>
+
+
+    <!-- MAIN LEARNING AREA -->
+    <main id="learningArea">
+
+
+        <!-- DISCOVERY -->
+        <section class="lesson" id="discovery">
+
+            <div class="lesson-heading">
+
+                <div class="big-number">1</div>
+
+                <div>
+
+                    <h2>🔎 Data Discovery</h2>
+
+                    <p>
+                        Finding useful data that already exists.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="explanation">
+
+                <strong>💡 Think about it:</strong>
+
+                <p>
+                    Suppose we want to teach an AI to recognize cars.
+                    Do we have to take every photograph ourselves?
+                </p>
+
+                <p>
+                    No! We can search for existing datasets on the
+                    Internet, databases, research collections, etc.
+                </p>
+
+            </div>
+
+
+            <div class="dataset-area">
+
+                <h3>🚗 Search for a Car Dataset</h3>
+
+                <div class="dataset-search">
+
+                    <div class="search-box">
+                        🔍
+                        <span>car images dataset</span>
+                    </div>
+
+                    <button id="discoverBtn">
+                        🔎 Discover Data
+                    </button>
+
+                </div>
+
+
+                <div class="dataset-grid" id="discoveryResults">
+
+                    <div class="data-placeholder">
+                        <span>🔍</span>
+                        <p>Click "Discover Data"</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="teacher-note">
+
+                👩‍🏫 <b>Teacher Explanation:</b>
+
+                <span>
+                    Data Discovery means <b>finding data that already exists</b>.
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- AUGMENTATION -->
+        <section class="lesson hidden" id="augmentation">
+
+            <div class="lesson-heading">
+
+                <div class="big-number">2</div>
+
+                <div>
+
+                    <h2>🔄 Data Augmentation</h2>
+
+                    <p>
+                        Creating new variations from existing data.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="explanation">
+
+                <strong>💡 Think about it:</strong>
+
+                <p>
+                    Suppose we only have one car photograph.
+                    Can we create more training examples from it?
+                </p>
+
+                <p>
+                    Yes! We can rotate, flip, crop or change the
+                    brightness of the image.
+                </p>
+
+            </div>
+
+
+            <div class="augmentation-lab">
+
+                <div class="original">
+
+                    <h3>📸 Original Data</h3>
+
+                    <div class="car-image">
+                        🚗
+                    </div>
+
+                    <p>One car image</p>
+
+                </div>
+
+
+                <div class="arrow">
+                    ➜
+                </div>
+
+
+                <div class="variations">
+
+                    <h3>✨ Generated Variations</h3>
+
+                    <div id="variationGrid">
+
+                        <div class="variation empty">
+                            <span>?</span>
+                        </div>
+
+                        <div class="variation empty">
+                            <span>?</span>
+                        </div>
+
+                        <div class="variation empty">
+                            <span>?</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="augmentation-controls">
+
+                <button id="rotateBtn">
+                    ↪️ Rotate
+                </button>
+
+                <button id="flipBtn">
+                    ↔️ Flip
+                </button>
+
+                <button id="cropBtn">
+                    🔍 Crop
+                </button>
+
+                <button id="brightBtn">
+                    ☀️ Brightness
+                </button>
+
+                <button class="reset-btn" id="resetAugmentation">
+                    🔄 Reset
+                </button>
+
+            </div>
+
+
+            <div class="data-counter">
+
+                Dataset Size:
+
+                <strong id="dataCount">1</strong>
+
+                images
+
+            </div>
+
+
+            <div class="teacher-note">
+
+                👩‍🏫 <b>Teacher Explanation:</b>
+
+                <span>
+                    Data Augmentation does not collect completely new
+                    information. It creates <b>variations of existing data</b>.
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- GENERATION -->
+        <section class="lesson hidden" id="generation">
+
+            <div class="lesson-heading">
+
+                <div class="big-number">3</div>
+
+                <div>
+
+                    <h2>🎛️ Data Generation</h2>
+
+                    <p>
+                        Creating completely new data using systems,
+                        sensors or simulations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="explanation">
+
+                <strong>💡 Think about it:</strong>
+
+                <p>
+                    What if we don't have enough real-world driving
+                    data?
+                </p>
+
+                <p>
+                    We can use a computer simulation to create
+                    different driving situations.
+                </p>
+
+            </div>
+
+
+            <div class="simulation">
+
+                <div class="road">
+
+                    <div class="road-line line1"></div>
+                    <div class="road-line line2"></div>
+
+                    <div class="simulation-car">
+                        🚗
+                    </div>
+
+                </div>
+
+
+                <div class="conditions">
+
+                    <div class="condition">
+
+                        <span>🌦️</span>
+
+                        <div>
+                            <b>Weather</b>
+                            <strong id="weather">
+                                Sunny
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="condition">
+
+                        <span>💡</span>
+
+                        <div>
+                            <b>Lighting</b>
+                            <strong id="lighting">
+                                Day
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="condition">
+
+                        <span>🛣️</span>
+
+                        <div>
+                            <b>Road</b>
+                            <strong id="road">
+                                Dry
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="condition">
+
+                        <span>🚦</span>
+
+                        <div>
+                            <b>Traffic</b>
+                            <strong id="traffic">
+                                Low
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button class="generate-btn" id="generateBtn">
+
+                🎛️ Generate New Scenario
+
+            </button>
+
+
+            <div class="generated-message" id="generatedMessage">
+
+                Click the button to generate a new driving situation.
+
+            </div>
+
+
+            <div class="teacher-note">
+
+                👩‍🏫 <b>Teacher Explanation:</b>
+
+                <span>
+                    Data Generation means <b>creating new data</b>
+                    using simulations, sensors, recordings or other
+                    systems.
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- QUICK COMPARISON -->
+    <section class="comparison">
+
+        <h2>🧠 Remember the Difference</h2>
+
+        <div class="comparison-grid">
+
+            <div>
+                <span>🔎</span>
+
+                <h3>DISCOVERY</h3>
+
+                <p>
+                    Find existing data
+                </p>
+
+                <strong>FIND</strong>
+            </div>
+
+
+            <div>
+                <span>🔄</span>
+
+                <h3>AUGMENTATION</h3>
+
+                <p>
+                    Modify existing data
+                </p>
+
+                <strong>CHANGE</strong>
+            </div>
+
+
+            <div>
+                <span>🎛️</span>
+
+                <h3>GENERATION</h3>
+
+                <p>
+                    Create new data
+                </p>
+
+                <strong>CREATE</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- CHALLENGE -->
+    <section class="challenge">
+
+        <div class="challenge-header">
+
+            <span>🎯</span>
+
+            <div>
+
+                <h2>Data Detective Challenge</h2>
+
+                <p>
+                    Can you identify the correct data acquisition method?
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="question-number" id="questionNumber">
+            Question 1 of 5
+        </div>
+
+
+        <div class="question" id="question">
+
+        </div>
+
+
+        <div class="answers" id="answers">
+
+        </div>
+
+
+        <div class="challenge-result" id="challengeResult">
+
+        </div>
+
+
+        <div class="score">
+
+            ⭐ Score:
+
+            <strong id="score">
+                0
+            </strong>
+
+        </div>
+
+
+        <button id="nextQuestion" class="next-btn hidden">
+
+            Next Question ➜
+
+        </button>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        🤖 Data Acquisition AI Lab
+
+        <span>
+            | Learn • Explore • Experiment
+        </span>
+
+    </footer>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
