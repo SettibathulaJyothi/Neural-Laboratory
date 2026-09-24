@@ -1,2 +1,2 @@
 
-https://settibathulajyothi.github.io/Neural-Laboratory/Data%20Acqusition
+https://settibathulajyothi.github.io/Neural-Laboratory/Data%20Acqusition/
