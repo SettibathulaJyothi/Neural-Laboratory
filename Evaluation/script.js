@@ -7,14 +7,10 @@
    GET ELEMENTS
 ===================================================== */
 
-const caseButtons =
-    document.querySelectorAll(".case-button");
+const caseButtons = document.querySelectorAll(".case-button");
 
-const caseLabel =
-    document.getElementById("caseLabel");
-
-const caseTitle =
-    document.getElementById("caseTitle");
+const caseLabel = document.getElementById("caseLabel");
+const caseTitle = document.getElementById("caseTitle");
 
 const predictionValue =
     document.getElementById("predictionValue");
@@ -48,80 +44,76 @@ const nextButton =
 
 
 /* =====================================================
-   FOUR CASES
+   FOUR EVALUATION CASES
 ===================================================== */
 
 const cases = {
 
+    /* ================= CASE 1 ================= */
+
     1: {
-
         prediction: "YES",
-
         reality: "YES",
 
         result: "TRUE POSITIVE",
-
         icon: "😄",
 
         explanation:
-            "The AI predicted YES and reality was also YES. The prediction was correct.",
+            "The AI predicted that the student would get a Perfect Score, and the student actually got a Perfect Score. The prediction was correct.",
 
-        angle: 65
-
+        /* RIGHT / CORRECT SIDE */
+        angle: 55
     },
 
 
+    /* ================= CASE 2 ================= */
+
     2: {
-
         prediction: "NO",
-
         reality: "NO",
 
         result: "TRUE NEGATIVE",
-
         icon: "🙂",
 
         explanation:
-            "The AI predicted NO and reality was also NO. The prediction was correct.",
+            "The AI predicted that the student would NOT get a Perfect Score, and the student actually did not get a Perfect Score. The prediction was correct.",
 
-        angle: -65
-
+        /* RIGHT / CORRECT SIDE */
+        angle: 55
     },
 
 
+    /* ================= CASE 3 ================= */
+
     3: {
-
         prediction: "YES",
-
         reality: "NO",
 
         result: "FALSE POSITIVE",
-
         icon: "😟",
 
         explanation:
-            "The AI predicted YES, but reality was NO. The AI predicted something that did not happen.",
+            "The reality is that there was no Perfect Score because the paper was difficult. However, the AI incorrectly predicted that the student would get a Perfect Score. This is a False Positive.",
 
-        angle: -35
-
+        /* LEFT / INCORRECT SIDE */
+        angle: -55
     },
 
 
+    /* ================= CASE 4 ================= */
+
     4: {
-
         prediction: "NO",
-
         reality: "YES",
 
         result: "FALSE NEGATIVE",
-
         icon: "😣",
 
         explanation:
-            "The AI predicted NO, but reality was YES. The AI missed something that actually happened.",
+            "The reality is that the student got a Perfect Score. However, the AI incorrectly predicted that the student would NOT get a Perfect Score. This is a False Negative.",
 
-        angle: 35
-
+        /* LEFT / INCORRECT SIDE */
+        angle: -55
     }
 
 };
@@ -142,56 +134,66 @@ function showCase(number) {
 
     selectedCase = number;
 
-
-    const data =
-        cases[number];
+    const data = cases[number];
 
 
-    /* Case heading */
+    /* ---------------------------------------------
+       CASE HEADING
+    --------------------------------------------- */
 
     caseLabel.textContent =
         "CASE " + number;
-
 
     caseTitle.textContent =
         "Is There a Perfect Score?";
 
 
-    /* Prediction */
+    /* ---------------------------------------------
+       PREDICTION
+    --------------------------------------------- */
 
     predictionValue.textContent =
         data.prediction;
 
 
-    /* Reality */
+    /* ---------------------------------------------
+       REALITY
+    --------------------------------------------- */
 
     realityValue.textContent =
         data.reality;
 
 
-    /* Result */
+    /* ---------------------------------------------
+       RESULT
+    --------------------------------------------- */
 
     resultIcon.textContent =
         data.icon;
-
 
     resultTitle.textContent =
         data.result;
 
 
+    /* ---------------------------------------------
+       EXPLANATION
+    --------------------------------------------- */
+
     explanationText.textContent =
         data.explanation;
 
 
-    /* Move needle */
+    /* ---------------------------------------------
+       NEEDLE
+    --------------------------------------------- */
 
     needle.style.transform =
-        "translateX(-50%) rotate(" +
-        data.angle +
-        "deg)";
+        `translateX(-50%) rotate(${data.angle}deg)`;
 
 
-    /* False result */
+    /* ---------------------------------------------
+       FALSE / TRUE RESULT STYLE
+    --------------------------------------------- */
 
     if (
         data.result === "FALSE POSITIVE" ||
@@ -207,35 +209,31 @@ function showCase(number) {
     }
 
 
-    /* Case counter */
+    /* ---------------------------------------------
+       CASE COUNTER
+    --------------------------------------------- */
 
     currentCase.textContent =
         number;
 
 
-    /* Active case */
+    /* ---------------------------------------------
+       ACTIVE CASE BUTTON
+    --------------------------------------------- */
 
-    caseButtons.forEach(
-        button => {
+    caseButtons.forEach(button => {
 
-            button.classList.remove(
-                "active"
-            );
+        button.classList.remove("active");
 
-            if (
-                Number(
-                    button.dataset.case
-                ) === number
-            ) {
+        if (
+            Number(button.dataset.case) === number
+        ) {
 
-                button.classList.add(
-                    "active"
-                );
-
-            }
+            button.classList.add("active");
 
         }
-    );
+
+    });
 
 }
 
@@ -244,73 +242,56 @@ function showCase(number) {
    CASE BUTTONS
 ===================================================== */
 
-caseButtons.forEach(
-    button => {
+caseButtons.forEach(button => {
 
-        button.addEventListener(
-            "click",
-            function () {
+    button.addEventListener("click", () => {
 
-                const number =
-                    Number(
-                        this.dataset.case
-                    );
+        const number =
+            Number(button.dataset.case);
 
-                showCase(number);
+        showCase(number);
 
-            }
-        );
+    });
 
-    }
-);
+});
 
 
 /* =====================================================
    NEXT CASE
 ===================================================== */
 
-nextButton.addEventListener(
-    "click",
-    function () {
+nextButton.addEventListener("click", () => {
 
-        if (selectedCase < 4) {
+    if (selectedCase < 4) {
 
-            showCase(
-                selectedCase + 1
-            );
+        showCase(selectedCase + 1);
 
-        } else {
+    } else {
 
-            showCase(1);
-
-        }
+        showCase(1);
 
     }
-);
+
+});
 
 
 /* =====================================================
    PREVIOUS CASE
 ===================================================== */
 
-previousButton.addEventListener(
-    "click",
-    function () {
+previousButton.addEventListener("click", () => {
 
-        if (selectedCase > 1) {
+    if (selectedCase > 1) {
 
-            showCase(
-                selectedCase - 1
-            );
+        showCase(selectedCase - 1);
 
-        } else {
+    } else {
 
-            showCase(4);
-
-        }
+        showCase(4);
 
     }
-);
+
+});
 
 
 /* =====================================================
@@ -328,44 +309,39 @@ const challengeResult =
     );
 
 
-challengeButtons.forEach(
-    button => {
+challengeButtons.forEach(button => {
 
-        button.addEventListener(
-            "click",
-            function () {
+    button.addEventListener("click", () => {
 
-                const answer =
-                    this.dataset.answer;
+        const answer =
+            button.dataset.answer;
 
 
-                if (answer === "FP") {
+        if (answer === "FP") {
 
-                    challengeResult.innerHTML =
-                        "🎉 Correct! YES prediction + NO reality = FALSE POSITIVE.";
+            challengeResult.innerHTML =
+                "🎉 Correct! YES prediction + NO reality = FALSE POSITIVE.";
 
-                    challengeResult.style.color =
-                        "#a72e2e";
+            challengeResult.style.color =
+                "#2e7d32";
 
-                } else {
+        } else {
 
-                    challengeResult.innerHTML =
-                        "🤔 Try again! AI said YES, but Reality said NO.";
+            challengeResult.innerHTML =
+                "🤔 Try again! The AI said YES, but Reality said NO.";
 
-                    challengeResult.style.color =
-                        "#667085";
+            challengeResult.style.color =
+                "#667085";
 
-                }
+        }
 
-            }
-        );
+    });
 
-    }
-);
+});
 
 
 /* =====================================================
-   START WITH CASE 1
+   START
 ===================================================== */
 
 showCase(1);
