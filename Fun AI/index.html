@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Brain Lab | Student Fun Zone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">🧠</div>
+    <div>
+      <h1>Happy Brain Lab</h1>
+      <p>Your little break from big lessons!</p>
+    </div>
+    <div class="top-emoji">🌈 ✨ 🦋</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <span class="tag">WELCOME TO YOUR HAPPY PLACE</span>
+        <h2>Hey, Superstar! <span id="wave">👋</span></h2>
+        <p>Take a tiny break. Play a little. Smile a lot!</p>
+        <button id="surpriseBtn" class="primary-btn">Surprise Me! 🎁</button>
+      </div>
+      <div class="hero-art" aria-label="Happy cartoon sun">🌞</div>
+    </section>
+
+    <section class="mood-section">
+      <h2>💖 How is your brain feeling?</h2>
+      <p>Every feeling is okay. Pick the face that matches your mood.</p>
+      <div class="moods">
+        <button class="mood" data-mood="Happy" data-face="😄">😄<span>Happy</span></button>
+        <button class="mood" data-mood="Sleepy" data-face="😴">😴<span>Sleepy</span></button>
+        <button class="mood" data-mood="Confused" data-face="🤔">🤔<span>Confused</span></button>
+        <button class="mood" data-mood="Silly" data-face="🤪">🤪<span>Silly</span></button>
+        <button class="mood" data-mood="Calm" data-face="😌">😌<span>Calm</span></button>
+      </div>
+      <p id="moodMessage" class="message" aria-live="polite">
+        Your feelings are welcome here! 💕
+      </p>
+    </section>
+
+    <section class="games">
+      <article class="game-card bubble-card">
+        <div class="card-icon">🫧</div>
+        <h2>Bubble Pop Party</h2>
+        <p>Pop as many bubbles as you can. Ready, pop star?</p>
+        <div class="score">Bubbles popped: <strong id="score">0</strong></div>
+        <div id="bubbleArea" class="bubble-area">
+          <span class="bubble-hint">Tap the bubbles!</span>
+        </div>
+        <button id="bubbleBtn" class="primary-btn">Make Bubbles! 🫧</button>
+        <button id="clearBtn" class="soft-btn">Clear Area</button>
+      </article>
+
+      <article class="game-card calm-card">
+        <div class="card-icon">🌸</div>
+        <h2>Calm Corner</h2>
+        <p>Give your brain a peaceful little moment.</p>
+        <div id="breathCircle" class="breath-circle">
+          <span id="breathText">Ready?</span>
+        </div>
+        <p id="breathHint">Sit comfortably and follow the circle.</p>
+        <button id="breathBtn" class="primary-btn">Start Breathing 🌿</button>
+      </article>
+
+      <article class="game-card joke-card">
+        <div class="card-icon">😂</div>
+        <h2>Giggle Generator</h2>
+        <p>Warning: extremely silly jokes ahead!</p>
+        <div class="joke-box">
+          <div id="jokeEmoji">🤓</div>
+          <p id="jokeText" aria-live="polite">
+            Why did the student eat their homework? Just kidding... let's find out!
+          </p>
+        </div>
+        <button id="jokeBtn" class="primary-btn">Tell Me a Joke! 🤣</button>
+        <p id="jokeSource" class="tiny-note">Powered by Happy Brain Lab</p>
+      </article>
+
+      <article class="game-card compliment-card">
+        <div class="card-icon">⭐</div>
+        <h2>Compliment Machine</h2>
+        <p>Because you deserve some good vibes.</p>
+        <div id="compliment" class="compliment">
+          You are one of a kind! 💛
+        </div>
+        <button id="complimentBtn" class="primary-btn">Boost My Mood ✨</button>
+      </article>
+    </section>
+
+    <section class="challenge">
+      <div>
+        <span class="tag">MINI CHALLENGE</span>
+        <h2>🎯 Your 30-Second Happy Challenge</h2>
+        <p id="challengeText">Can you name 3 things that make you smile?</p>
+      </div>
+      <button id="challengeBtn" class="primary-btn">New Challenge 🔄</button>
+    </section>
+
+    <section class="final-note">
+      <div>🌻</div>
+      <h2>Remember, superstar!</h2>
+      <p>You don't have to be perfect. Take breaks, ask for help, and keep growing at your own pace.</p>
+      <span>Made with 💖 for curious minds</span>
+    </section>
+  </main>
+
+  <footer>HAPPY BRAIN LAB · PLAY • BREATHE • SMILE</footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
