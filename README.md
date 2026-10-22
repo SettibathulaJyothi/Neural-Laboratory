@@ -2,8 +2,8 @@
 
 # Neural-Laboratory
 
-This Repository consists of AI Experiments
-https://settibathulajyothi.github.io/Neural-Laboratory/
+This Repository consists of AI Experiments  
+Only for educational purpose based on syllabus  
 
 
 
