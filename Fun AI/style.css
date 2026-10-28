@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
 
 :root {
-  --ink: #393253;
-  --pink: #ffe0ed;
+  --ink: #000000;
+  --pink: #0ec536;
   --purple: #e9e0ff;
   --blue: #dff4ff;
   --yellow: #fff2bf;
@@ -16,7 +16,7 @@ body {
   margin: 0;
   font-family: 'Nunito', 'Trebuchet MS', sans-serif;
   color: var(--ink);
-  background: linear-gradient(135deg, #fff9f3, #f5f0ff, #edfbff);
+  background: linear-gradient(135deg, #0dac1a, #b3b017, #7c1562);
   min-height: 100vh;
 }
 
@@ -27,8 +27,8 @@ button { font: inherit; cursor: pointer; }
   align-items: center;
   gap: 14px;
   padding: 20px 7%;
-  background: rgba(255,255,255,.85);
-  border-bottom: 2px solid #eee6ff;
+  background: rgba(231, 173, 66, 0.85);
+  border-bottom: 2px solid #507ca5;
 }
 
 .logo {
@@ -54,25 +54,25 @@ main { width: min(1100px, 92%); margin: 30px auto; }
   gap: 20px;
   padding: 36px;
   border-radius: 30px;
-  background: linear-gradient(115deg, #ffe2ed, #e8e2ff, #dff5ff);
+  background: linear-gradient(115deg, #fdfdfd, #bfbbce, #357c9c);
   box-shadow: 0 12px 30px #5d477610;
 }
 
 .hero-text { max-width: 600px; }
 .tag {
   display: inline-block;
-  font-size: 11px;
-  font-weight: 900;
+  font-size: 20px;
+  font-weight: 1000;
   letter-spacing: 1.3px;
-  color: #7356a5;
+  color: #f74904;
 }
 
 .hero h2 { font-size: clamp(28px, 5vw, 43px); margin: 12px 0; }
-.hero p { color: #675d7b; font-size: 17px; }
+.hero p { color: #4b05ee; font-size: 17px; }
 .hero-art {
   font-size: clamp(75px, 13vw, 130px);
   animation: float 3s ease-in-out infinite;
-  filter: drop-shadow(0 10px 10px #c49c4b30);
+  filter: drop-shadow(0 10px 10px #b87d0630);
 }
 
 @keyframes float {
@@ -88,12 +88,12 @@ main { width: min(1100px, 92%); margin: 30px auto; }
 }
 
 .primary-btn {
-  color: white;
-  background: linear-gradient(110deg, #8a65e8, #b65ce1);
-  box-shadow: 0 5px 0 #714bb6;
+  color: rgb(235, 230, 230);
+  background: linear-gradient(110deg, #fc2803, #cc4a0e);
+  box-shadow: 0 5px 0 #c44310;
 }
 
-.soft-btn { background: #f0eaff; color: #7356a5; }
+.soft-btn { background: #8ea03c; color: #00000e; }
 
 .primary-btn:hover, .soft-btn:hover {
   transform: translateY(-3px);
