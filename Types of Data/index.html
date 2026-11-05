@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Classification | Learning Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">🧠 DATA LAB</div>
+  <button id="resetBtn">↻ Reset Flowchart</button>
+</header>
+
+<main>
+  <section class="heading">
+    <span class="tag">INTERACTIVE LEARNING MODEL</span>
+    <h1>Data Classification</h1>
+    <p>Explore different types of data. Click each category to discover more!</p>
+  </section>
+
+  <section class="flow-area">
+
+    <div class="root-node node" data-id="data">
+      <span class="node-icon">📊</span>
+      <h2>DATA</h2>
+      <small>Types of Data</small>
+    </div>
+
+    <div class="connector root-connector"></div>
+
+    <div class="main-branches">
+
+      <!-- TEXTUAL BRANCH -->
+      <div class="branch textual-branch">
+        <div class="connector vertical"></div>
+
+        <button class="category-node textual" data-id="textual">
+          <span>📝</span>
+          <strong>TEXTUAL DATA</strong>
+          <small>Words and categories</small>
+        </button>
+
+        <div class="children" id="textualChildren">
+          <div class="connector vertical"></div>
+
+          <div class="child-nodes">
+            <button class="child-node" data-id="nominal">
+              <span>🔤</span>
+              <strong>Nominal</strong>
+              <small>No order</small>
+            </button>
+
+            <button class="child-node" data-id="ordinal">
+              <span>📶</span>
+              <strong>Ordinal</strong>
+              <small>Has order</small>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUMERIC BRANCH -->
+      <div class="branch numeric-branch">
+        <div class="connector vertical"></div>
+
+        <button class="category-node numeric" data-id="numeric">
+          <span>🔢</span>
+          <strong>NUMERIC DATA</strong>
+          <small>Numbers and quantities</small>
+        </button>
+
+        <div class="children" id="numericChildren">
+          <div class="connector vertical"></div>
+
+          <div class="child-nodes">
+            <button class="child-node" data-id="continuous">
+              <span>📏</span>
+              <strong>Continuous</strong>
+              <small>Measured values</small>
+            </button>
+
+            <button class="child-node" data-id="discrete">
+              <span>🔢</span>
+              <strong>Discrete</strong>
+              <small>Countable values</small>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INFORMATION PANEL -->
+  <section class="info-panel" id="infoPanel">
+    <div class="info-icon" id="infoIcon">👆</div>
+    <div class="info-content">
+      <span class="tag">EXPLORE CATEGORY</span>
+      <h2 id="infoTitle">Select a category</h2>
+      <p id="infoDescription">
+        Click any category in the flowchart to see its explanation.
+      </p>
+
+      <div class="example-box">
+        <h3>💡 Examples</h3>
+        <p id="infoExamples">Your examples will appear here.</p>
+      </div>
+
+      <div class="key-point" id="keyPoint">
+        Start exploring the flowchart!
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>DATA LAB · Learn by Exploring ✨</p>
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
